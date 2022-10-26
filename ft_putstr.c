@@ -6,22 +6,21 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:56:07 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/24 04:04:53 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 07:10:38 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int print)
 {
-	size_t	x;
+	int	x;
 
-	if (!s)
-		return ;
 	x = 0;
 	while (s[x])
 	{
-		write(fd, &s[x], 1);
+		print = ft_putchar(s[x], print);
 		x++;
 	}
+	return (print);
 }

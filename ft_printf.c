@@ -6,45 +6,34 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 01:25:36 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/24 07:17:57 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 07:08:21 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libftprintf.h"
-#include <stdio.h>
-#include <stdarg.h>
 
-int ft_printf(const char *walid, ...)
+int	ft_printf(const char *p, ...)
 {
-	va_list arg;
-	int print = 0;
-	int x;
-	char oups;
-	const char *p = walid;
-	va_start(arg, walid);
-	while(p[x])
+	va_list	arg;
+	int		print;
+	int		x;
+
+	print = 0;
+	x = 0;
+	va_start (arg, p);
+	while (p[x])
 	{
-		if(p[x] == '%')
+		if (p[x] == '%')
 		{
-			if(p[x + 1] == '%')
-				{
-				ft_putchar('%', 1);
-				print++;
-				x++;
-				}
+			x++;
+			if (p[x] == '%')
+				print = ft_putchar('%', print);
 			else
-			{
-				if ( ft_strchr("cspdiuxX", p[x + 1] ))
-				{
-					p = va_arg(arg, walid);
-					print = ft_helper(oups, arg, print);
-					x++;
-				}
-			}
+				print = ft_helper(p[x], arg, print);
 		}
-		ft_putchar(p[x], 1);
-		print++;
+		else
+			print = ft_putchar(p[x], print);
 		x++;
 	}
+	return (print);
 }

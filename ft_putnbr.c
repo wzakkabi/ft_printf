@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 04:20:28 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 07:11:09 by wzakkabi         ###   ########.fr       */
+/*   Created: 2022/10/26 02:21:10 by wzakkabi          #+#    #+#             */
+/*   Updated: 2022/10/26 07:10:17 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_strchr(char *s, int c)
+int	ft_putnbr(int n, int print)
 {
-	int	x;
-
-	x = 0;
-	while (s[x])
+	if (n == -2147483648)
+		print = ft_putstr_fd("-2147483648", print);
+	else
 	{
-		if (s[x] == c)
-			return (1);
-		x++;
+		if (n < 0)
+		{
+			print = ft_putchar('-', print);
+			n = n * -1;
+		}
+		if (n > 9)
+		{
+			print = ft_putnbr(n / 10, print);
+		}
+		print = ft_putchar((n % 10) + '0', print);
 	}
-	return (0);
+	return (print);
 }

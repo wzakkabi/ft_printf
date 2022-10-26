@@ -6,44 +6,29 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:06:02 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/24 07:07:02 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 07:09:29 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libftprintf.h"
 
-int		ft_helper(char c, void *arg, int print)
+int	ft_helper(char c, va_list arg, int print)
 {
-	if(c == 'd')
+	if (c == 'd' || c == 'i')
+		print = ft_putnbr(va_arg(arg, int), print);
+	else if (c == 'p')
 	{
-
+		write(1, "0x", 2);
+		print = print + 2;
+		print = ft_putnbr_base(16, va_arg(arg, unsigned long), c, print);
 	}
-	else if(c == 'p')
-	{
-
-	}
-	else if(c == 'i')
-	{
-
-	}
-	else if(c == 'u')
-	{
-
-	}
-	else if(c == 'x' || c == 'X')
-	{
-		ft_putnbr_base(16,(int)arg, printf);
-	}
-	else if(c == 's')
-	{
-
-	}
-	else if(c == 'c')
-	{
-
-	}
-
-
-	return print;
+	else if (c == 'u')
+		print = ft_putnbr_base(10, va_arg(arg, unsigned long), c, print);
+	else if (c == 'x' || c == 'X')
+		print = ft_putnbr_base(16, va_arg(arg, unsigned long), c, print);
+	else if (c == 's')
+		print = ft_putstr_fd(va_arg(arg, char *), print);
+	else if (c == 'c')
+		print = ft_putchar(va_arg(arg, int), print);
+	return (print);
 }

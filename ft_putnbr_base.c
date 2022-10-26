@@ -6,25 +6,29 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:57:02 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/24 06:47:00 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 07:20:02 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-
-int	ft_putnbr_base(int base, int number, int print, char c)
+int	ft_putnbr_base(unsigned long base, unsigned long number, char c, int print)
 {
-	char *p = "0123456789abcdef";
-	if(number > 0)
+	char	*p;
+
+	if (c == 'x')
+		p = "0123456789ABCDEF";
+	else
+		p = "0123456789abcdef";
+	if (number < 0)
 	{
 		number *= -1;
 		print = ft_putchar('-', print);
 	}
-	if(number > base)
+	if (number >= base)
 	{
-		ft_putnbr_base(base, (number / 10), print, c);
+		print = ft_putnbr_base(base, (number / base), c, print);
 	}
-	print = ft_putchar(p[number % 10], print);
-	return print;
+	print = ft_putchar(p[number % base], print);
+	return (print);
 }

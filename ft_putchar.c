@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:16:51 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/24 06:41:20 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 07:11:42 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ int	ft_putchar(char c, int print)
 {
 	write(1, &c, 1);
 	print++;
+	return (print);
 }
