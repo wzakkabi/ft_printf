@@ -6,17 +6,19 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:56:07 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 07:10:38 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:33:20 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr_fd(char *s, int print)
 {
 	int	x;
 
 	x = 0;
+	if (s == NULL)
+		return (ft_putstr_fd("(null)", print));
 	while (s[x])
 	{
 		print = ft_putchar(s[x], print);

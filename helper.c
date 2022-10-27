@@ -6,11 +6,11 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:06:02 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 07:09:29 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:30:43 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_helper(char c, va_list arg, int print)
 {
@@ -23,9 +23,9 @@ int	ft_helper(char c, va_list arg, int print)
 		print = ft_putnbr_base(16, va_arg(arg, unsigned long), c, print);
 	}
 	else if (c == 'u')
-		print = ft_putnbr_base(10, va_arg(arg, unsigned long), c, print);
+		print = ft_putnbr_base(10, va_arg(arg, unsigned int), c, print);
 	else if (c == 'x' || c == 'X')
-		print = ft_putnbr_base(16, va_arg(arg, unsigned long), c, print);
+		print = ft_putnbr_base(16, va_arg(arg, unsigned int), c, print);
 	else if (c == 's')
 		print = ft_putstr_fd(va_arg(arg, char *), print);
 	else if (c == 'c')

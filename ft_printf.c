@@ -6,11 +6,11 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 01:25:36 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 07:08:21 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:56:41 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *p, ...)
 {

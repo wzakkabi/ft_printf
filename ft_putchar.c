@@ -6,11 +6,11 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:16:51 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 07:11:42 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:56:38 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c, int print)
 {
