@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:21:10 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/27 00:51:10 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:22:21 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,4 @@ int	ft_putnbr(int n, int print)
 		print = ft_putchar((n % 10) + '0', print);
 	}
 	return (print);
-}
-
-#include <limits.h>
-
-int main(void)
-{
-	printf("\n%d",ft_putnbr(INT_MIN + 1, 0));
-	return 0;
 }

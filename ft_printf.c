@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 01:25:36 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/10/26 23:56:41 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:16:24 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_printf(const char *p, ...)
 		}
 		else
 			print = ft_putchar(p[x], print);
+		if(p[x] == '\0')
+			break ;
 		x++;
 	}
 	return (print);
