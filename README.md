@@ -26,7 +26,10 @@ make
 
 ## Usage
 Here's an example demonstrating the usage of `ft_printf`:
-
+```shell
+touch main.c
+```
+copy to main.c
 ```c
 #include "ft_printf.h"
 
@@ -34,6 +37,13 @@ int main() {
  ft_printf("Hello, %s!\n", "world");
  return 0;
 }
+```
+```shell
+make re  && gcc main.c libftprintf.a
+```
+run a.out
+```shell
+./a.out
 ```
 ## Contact
 If you have any questions, suggestions, or issues regarding ft_printf, feel free to contact [wzakkabi@gmail.com] or open an issue on the GitHub repository.
